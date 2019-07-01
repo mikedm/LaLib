@@ -1,0 +1,95 @@
+\hypertarget{LaLib_8cpp}{}\section{La\+Lib.\+cpp File Reference}
+\label{LaLib_8cpp}\index{LaLib.cpp@{LaLib.cpp}}
+
+
+Implement multiply and transpose operations for \mbox{\hyperlink{namespaceLaLib}{La\+Lib}}.  
+
+
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}La\+Lib.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{LaLib_8cpp_a517640512644830bc6d06f7677c069d0}{matrix\+Print}} (vector$<$ vector$<$ int $>$$>$ \&matrix, bool include\+Size)
+\begin{DoxyCompactList}\small\item\em For the given matrix, print each element in standard row/column format. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{LaLib_8cpp_a375206d89febc1b7a7f6c57b2af3bbb1}{matrix\+Transpose}} (vector$<$ vector$<$ int $>$$>$ \&matrix, vector$<$ vector$<$ int $>$$>$ \&trans)
+\begin{DoxyCompactList}\small\item\em For the given matrix, transpose the elements and set the result in trans. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{LaLib_8cpp_ac3c7249a4b3cefbfd6a4bd21b48eff0e}{matrix\+Multiply}} (vector$<$ vector$<$ int $>$$>$ \&matrixA, vector$<$ vector$<$ int $>$$>$ \&matrixB, vector$<$ vector$<$ int $>$$>$ \&product)
+\begin{DoxyCompactList}\small\item\em Multiply the given matricies and set the result in product. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implement multiply and transpose operations for \mbox{\hyperlink{namespaceLaLib}{La\+Lib}}. 
+
+Implementation of \mbox{\hyperlink{namespaceLaLib}{La\+Lib}} shared library \begin{DoxyAuthor}{Author}
+Michael Meloney 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+June 26, 2019 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{LaLib_8cpp_ac3c7249a4b3cefbfd6a4bd21b48eff0e}\label{LaLib_8cpp_ac3c7249a4b3cefbfd6a4bd21b48eff0e}} 
+\index{LaLib.cpp@{LaLib.cpp}!matrixMultiply@{matrixMultiply}}
+\index{matrixMultiply@{matrixMultiply}!LaLib.cpp@{LaLib.cpp}}
+\subsubsection{\texorpdfstring{matrixMultiply()}{matrixMultiply()}}
+{\footnotesize\ttfamily int matrix\+Multiply (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ int $>$$>$ \&}]{matrixA,  }\item[{vector$<$ vector$<$ int $>$$>$ \&}]{matrixB,  }\item[{vector$<$ vector$<$ int $>$$>$ \&}]{product }\end{DoxyParamCaption})}
+
+
+
+Multiply the given matricies and set the result in product. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em matrixA} & Input matrix to multiply \\
+\hline
+{\em matrixB} & Input matrix to multiply \\
+\hline
+{\em product} & Result product matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if failed to calculate product operation, 0 for success 
+\end{DoxyReturn}
+\mbox{\Hypertarget{LaLib_8cpp_a517640512644830bc6d06f7677c069d0}\label{LaLib_8cpp_a517640512644830bc6d06f7677c069d0}} 
+\index{LaLib.cpp@{LaLib.cpp}!matrixPrint@{matrixPrint}}
+\index{matrixPrint@{matrixPrint}!LaLib.cpp@{LaLib.cpp}}
+\subsubsection{\texorpdfstring{matrixPrint()}{matrixPrint()}}
+{\footnotesize\ttfamily void matrix\+Print (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ int $>$$>$ \&}]{matrix,  }\item[{bool}]{include\+Size = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+For the given matrix, print each element in standard row/column format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em matrix} & The input matrix to print. \\
+\hline
+{\em include\+Size} & Optional parameter (default false) to include the size of the matrix (number of rows/columns) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{LaLib_8cpp_a375206d89febc1b7a7f6c57b2af3bbb1}\label{LaLib_8cpp_a375206d89febc1b7a7f6c57b2af3bbb1}} 
+\index{LaLib.cpp@{LaLib.cpp}!matrixTranspose@{matrixTranspose}}
+\index{matrixTranspose@{matrixTranspose}!LaLib.cpp@{LaLib.cpp}}
+\subsubsection{\texorpdfstring{matrixTranspose()}{matrixTranspose()}}
+{\footnotesize\ttfamily int matrix\+Transpose (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ int $>$$>$ \&}]{matrix,  }\item[{vector$<$ vector$<$ int $>$$>$ \&}]{trans }\end{DoxyParamCaption})}
+
+
+
+For the given matrix, transpose the elements and set the result in trans. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em matrix} & Input matrix to transpose \\
+\hline
+{\em trans} & Result transpose matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if failed to calculate transpose operation, 0 for success 
+\end{DoxyReturn}

@@ -1,0 +1,227 @@
+\hypertarget{TestRunner_8cpp}{}\section{Test\+Runner.\+cpp File Reference}
+\label{TestRunner_8cpp}\index{TestRunner.cpp@{TestRunner.cpp}}
+
+
+Sample application and automated test framework to execute a single operation or run many operations from file.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}La\+Lib.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{TestRunner_8cpp_a98dda2083467713e6245f4ec4b0e4136}{get\+Matrix\+From\+User}} (vector$<$ vector$<$ int $>$$>$ \&matrix)
+\begin{DoxyCompactList}\small\item\em Read all matrix elements from the user; query the user for size, and each element. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{TestRunner_8cpp_acb5b1ab2ab218427cfef18d4564c0cb5}{get\+Matrix\+From\+Stream}} (ifstream \&stream, vector$<$ vector$<$ int $>$$>$ \&matrix)
+\begin{DoxyCompactList}\small\item\em Read all matrix elements from the given stream. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{TestRunner_8cpp_a5779d8aa5af2295f8158c0a52c1cd0c6}{is\+Eof}} (ifstream \&file)
+\begin{DoxyCompactList}\small\item\em Check for eof, skip whitespace. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{TestRunner_8cpp_a9e925d5c60eaba8ada5efc2242b5ed63}{do\+Matrix\+Multiply}} ()
+\begin{DoxyCompactList}\small\item\em Ask the user for matrix size of two matricies, and matrix elements, then calculate product, finally output the result. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{TestRunner_8cpp_a5c00d082c737b540a580688111cb3c21}{do\+Maxtrix\+Transpose}} ()
+\begin{DoxyCompactList}\small\item\em Ask the user for matrix size, and matrix elements, then calculate transpose, finally output the result. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{TestRunner_8cpp_a6275b897eda84325ec538d0357da65fc}{do\+Matrix\+Transpose\+Simulation}} (char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Read matricies from file and calculate transpose. Then compare against the expected transpose in the input file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{TestRunner_8cpp_a0c5214b02812db1e3494fabce7b65b57}{do\+Matrix\+Multiply\+Simulation}} (char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Read matricies from file and calculate product. Then compare against the expected product in the input file. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{TestRunner_8cpp_a4542de3a68109a4c2f0d9f0b24fe62fe}{get\+Cmd\+Option}} (char $\ast$$\ast$begin, char $\ast$$\ast$end, const string \&option)
+\begin{DoxyCompactList}\small\item\em Get the value of the command option. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{TestRunner_8cpp_acb8d5bae311381b5ec6877465cc8535c}{cmd\+Option\+Exists}} (char $\ast$$\ast$begin, char $\ast$$\ast$end, const string \&option)
+\begin{DoxyCompactList}\small\item\em Check if a given option exists. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{TestRunner_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main application entry point to take commandline arguments and execute correct options. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Sample application and automated test framework to execute a single operation or run many operations from file. 
+
+\begin{DoxyAuthor}{Author}
+Michael Meloney 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+June 26, 2019 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{TestRunner_8cpp_acb8d5bae311381b5ec6877465cc8535c}\label{TestRunner_8cpp_acb8d5bae311381b5ec6877465cc8535c}} 
+\index{TestRunner.cpp@{TestRunner.cpp}!cmdOptionExists@{cmdOptionExists}}
+\index{cmdOptionExists@{cmdOptionExists}!TestRunner.cpp@{TestRunner.cpp}}
+\subsubsection{\texorpdfstring{cmdOptionExists()}{cmdOptionExists()}}
+{\footnotesize\ttfamily bool cmd\+Option\+Exists (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{begin,  }\item[{char $\ast$$\ast$}]{end,  }\item[{const string \&}]{option }\end{DoxyParamCaption})}
+
+
+
+Check if a given option exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em begin} & Pointer to beginning of string \\
+\hline
+{\em end} & Pointer to end of string \\
+\hline
+{\em option} & Option to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if option exists, otherwise false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{TestRunner_8cpp_a9e925d5c60eaba8ada5efc2242b5ed63}\label{TestRunner_8cpp_a9e925d5c60eaba8ada5efc2242b5ed63}} 
+\index{TestRunner.cpp@{TestRunner.cpp}!doMatrixMultiply@{doMatrixMultiply}}
+\index{doMatrixMultiply@{doMatrixMultiply}!TestRunner.cpp@{TestRunner.cpp}}
+\subsubsection{\texorpdfstring{doMatrixMultiply()}{doMatrixMultiply()}}
+{\footnotesize\ttfamily int do\+Matrix\+Multiply (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Ask the user for matrix size of two matricies, and matrix elements, then calculate product, finally output the result. 
+
+\begin{DoxyReturn}{Returns}
+0 for success, otherwise -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{TestRunner_8cpp_a0c5214b02812db1e3494fabce7b65b57}\label{TestRunner_8cpp_a0c5214b02812db1e3494fabce7b65b57}} 
+\index{TestRunner.cpp@{TestRunner.cpp}!doMatrixMultiplySimulation@{doMatrixMultiplySimulation}}
+\index{doMatrixMultiplySimulation@{doMatrixMultiplySimulation}!TestRunner.cpp@{TestRunner.cpp}}
+\subsubsection{\texorpdfstring{doMatrixMultiplySimulation()}{doMatrixMultiplySimulation()}}
+{\footnotesize\ttfamily int do\+Matrix\+Multiply\+Simulation (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Read matricies from file and calculate product. Then compare against the expected product in the input file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Filename of input file to read; see generator to discover how to create these files \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 for success, otherwise -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{TestRunner_8cpp_a6275b897eda84325ec538d0357da65fc}\label{TestRunner_8cpp_a6275b897eda84325ec538d0357da65fc}} 
+\index{TestRunner.cpp@{TestRunner.cpp}!doMatrixTransposeSimulation@{doMatrixTransposeSimulation}}
+\index{doMatrixTransposeSimulation@{doMatrixTransposeSimulation}!TestRunner.cpp@{TestRunner.cpp}}
+\subsubsection{\texorpdfstring{doMatrixTransposeSimulation()}{doMatrixTransposeSimulation()}}
+{\footnotesize\ttfamily int do\+Matrix\+Transpose\+Simulation (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Read matricies from file and calculate transpose. Then compare against the expected transpose in the input file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Filename of input file to read; see generator to discover how to create these files \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 for success, otherwise -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{TestRunner_8cpp_a5c00d082c737b540a580688111cb3c21}\label{TestRunner_8cpp_a5c00d082c737b540a580688111cb3c21}} 
+\index{TestRunner.cpp@{TestRunner.cpp}!doMaxtrixTranspose@{doMaxtrixTranspose}}
+\index{doMaxtrixTranspose@{doMaxtrixTranspose}!TestRunner.cpp@{TestRunner.cpp}}
+\subsubsection{\texorpdfstring{doMaxtrixTranspose()}{doMaxtrixTranspose()}}
+{\footnotesize\ttfamily int do\+Maxtrix\+Transpose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Ask the user for matrix size, and matrix elements, then calculate transpose, finally output the result. 
+
+\begin{DoxyReturn}{Returns}
+0 for success, otherwise -\/1 
+\end{DoxyReturn}
+\mbox{\Hypertarget{TestRunner_8cpp_a4542de3a68109a4c2f0d9f0b24fe62fe}\label{TestRunner_8cpp_a4542de3a68109a4c2f0d9f0b24fe62fe}} 
+\index{TestRunner.cpp@{TestRunner.cpp}!getCmdOption@{getCmdOption}}
+\index{getCmdOption@{getCmdOption}!TestRunner.cpp@{TestRunner.cpp}}
+\subsubsection{\texorpdfstring{getCmdOption()}{getCmdOption()}}
+{\footnotesize\ttfamily char$\ast$ get\+Cmd\+Option (\begin{DoxyParamCaption}\item[{char $\ast$$\ast$}]{begin,  }\item[{char $\ast$$\ast$}]{end,  }\item[{const string \&}]{option }\end{DoxyParamCaption})}
+
+
+
+Get the value of the command option. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em begin} & Pointer to beginning of string \\
+\hline
+{\em end} & Pointer to end of string \\
+\hline
+{\em option} & Option to search for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Return the string value of the given command option, or N\+U\+LL if not found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{TestRunner_8cpp_acb5b1ab2ab218427cfef18d4564c0cb5}\label{TestRunner_8cpp_acb5b1ab2ab218427cfef18d4564c0cb5}} 
+\index{TestRunner.cpp@{TestRunner.cpp}!getMatrixFromStream@{getMatrixFromStream}}
+\index{getMatrixFromStream@{getMatrixFromStream}!TestRunner.cpp@{TestRunner.cpp}}
+\subsubsection{\texorpdfstring{getMatrixFromStream()}{getMatrixFromStream()}}
+{\footnotesize\ttfamily void get\+Matrix\+From\+Stream (\begin{DoxyParamCaption}\item[{ifstream \&}]{stream,  }\item[{vector$<$ vector$<$ int $>$$>$ \&}]{matrix }\end{DoxyParamCaption})}
+
+
+
+Read all matrix elements from the given stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & Input stream to read \\
+\hline
+{\em matrix} & Output matrix vector that is the result of reading from file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{TestRunner_8cpp_a98dda2083467713e6245f4ec4b0e4136}\label{TestRunner_8cpp_a98dda2083467713e6245f4ec4b0e4136}} 
+\index{TestRunner.cpp@{TestRunner.cpp}!getMatrixFromUser@{getMatrixFromUser}}
+\index{getMatrixFromUser@{getMatrixFromUser}!TestRunner.cpp@{TestRunner.cpp}}
+\subsubsection{\texorpdfstring{getMatrixFromUser()}{getMatrixFromUser()}}
+{\footnotesize\ttfamily void get\+Matrix\+From\+User (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ int $>$$>$ \&}]{matrix }\end{DoxyParamCaption})}
+
+
+
+Read all matrix elements from the user; query the user for size, and each element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em matrix} & Output matrix vector that is the result of reading from file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{TestRunner_8cpp_a5779d8aa5af2295f8158c0a52c1cd0c6}\label{TestRunner_8cpp_a5779d8aa5af2295f8158c0a52c1cd0c6}} 
+\index{TestRunner.cpp@{TestRunner.cpp}!isEof@{isEof}}
+\index{isEof@{isEof}!TestRunner.cpp@{TestRunner.cpp}}
+\subsubsection{\texorpdfstring{isEof()}{isEof()}}
+{\footnotesize\ttfamily bool is\+Eof (\begin{DoxyParamCaption}\item[{ifstream \&}]{file }\end{DoxyParamCaption})}
+
+
+
+Check for eof, skip whitespace. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & File stream to check for end of file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if end of file, otherwise F\+A\+L\+SE 
+\end{DoxyReturn}
+\mbox{\Hypertarget{TestRunner_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{TestRunner_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{TestRunner.cpp@{TestRunner.cpp}!main@{main}}
+\index{main@{main}!TestRunner.cpp@{TestRunner.cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Main application entry point to take commandline arguments and execute correct options. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Count of arguments \\
+\hline
+{\em argv} & Commandline values \\
+\hline
+\end{DoxyParams}

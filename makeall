@@ -1,0 +1,2 @@
+g++ -fPIC LaLib.cpp -shared -o LaLib.so
+g++ -o TestRunner TestRunner.cpp LaLib.so

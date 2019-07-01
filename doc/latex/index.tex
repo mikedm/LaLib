@@ -1,0 +1,156 @@
+\hypertarget{index_intro_sec}{}\section{Introduction}\label{index_intro_sec}
+Welcome to Michael\textquotesingle{}s solution for Brain Corporation. Here you will find the shared library as requested. Additionally, there is a test application to demonstrate usage of the library and automated test to prove correctness. How is this achieved? There is a third package, generator, that takes advantage of \href{https://www.numpy.org/,}{\texttt{ https\+://www.\+numpy.\+org/,}} the fundamental package for scientific computing with Python. This standalone application will generate know matricies and expected results. The Test\+Runner application will consume one of these test case files and run the results of \mbox{\hyperlink{namespaceLaLib}{La\+Lib}} against it in an automated fashion. The results are printed at the end of the test execution.\hypertarget{index_install_sec}{}\section{Build}\label{index_install_sec}
+Run makeall~\newline
+ This simple shell script will compile the shared library into La\+Lib.\+so as well as compile and link the Test\+Runner application to drive the library.
+
+g++ -\/f\+P\+IC \mbox{\hyperlink{LaLib_8cpp}{La\+Lib.\+cpp}} -\/shared -\/o La\+Lib.\+so~\newline
+ g++ -\/o Test\+Runner \mbox{\hyperlink{TestRunner_8cpp}{Test\+Runner.\+cpp}} La\+Lib.\+so\hypertarget{index_exe_sec}{}\section{Execution}\label{index_exe_sec}
+Run ./\+Test\+Runner -\/h to view application help
+
+This test application will load the linear algebra shared library and execute with the following options.~\newline
+~\newline
+ Options\+:~\newline
+ -\/t Transponse~\newline
+ -\/m Multiply~\newline
+ -\/tf $<$filename$>$ Execute transpose simulations from given file~\newline
+ -\/mf $<$filename$>$ Execute multiply simulations from given file~\newline
+~\newline
+ \hypertarget{index_trans_subc}{}\subsection{Transpose}\label{index_trans_subc}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$ ./TestRunner -t}
+\DoxyCodeLine{Transpose given matrix.}
+\DoxyCodeLine{Enter rows and columns of matrix: 3 1}
+\DoxyCodeLine{}
+\DoxyCodeLine{Enter elements of matrix:}
+\DoxyCodeLine{Enter element [1][1]: 3}
+\DoxyCodeLine{Enter element [2][1]: 8}
+\DoxyCodeLine{Enter element [3][1]: 24}
+\DoxyCodeLine{}
+\DoxyCodeLine{Transpose:}
+\DoxyCodeLine{ 3 8 24}
+\end{DoxyCode}
+\hypertarget{index_multiply_subc}{}\subsection{Multiply}\label{index_multiply_subc}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$ ./TestRunner -m}
+\DoxyCodeLine{Multiply given matrices \textcolor{keyword}{using} the dot product.}
+\DoxyCodeLine{Enter rows and columns \textcolor{keywordflow}{for} first matrix: 2 2}
+\DoxyCodeLine{Enter rows and columns \textcolor{keywordflow}{for} second matrix: 2 2}
+\DoxyCodeLine{}
+\DoxyCodeLine{Enter elements of first matrix:}
+\DoxyCodeLine{Enter element [1][1]: 1}
+\DoxyCodeLine{Enter element [1][2]: 2}
+\DoxyCodeLine{Enter element [2][1]: 3}
+\DoxyCodeLine{Enter element [2][2]: 4}
+\DoxyCodeLine{}
+\DoxyCodeLine{Enter elements of second matrix:}
+\DoxyCodeLine{Enter element [1][1]: 5}
+\DoxyCodeLine{Enter element [1][2]: 6}
+\DoxyCodeLine{Enter element [2][1]: 7}
+\DoxyCodeLine{Enter element [2][2]: 8}
+\DoxyCodeLine{}
+\DoxyCodeLine{Product:}
+\DoxyCodeLine{ 19 22}
+\DoxyCodeLine{ 43 50}
+\end{DoxyCode}
+\hypertarget{index_correctness_sec}{}\section{Prove Correctness}\label{index_correctness_sec}
+To prove correctness, execute the generator application to produce known results. Then run Test\+Runner application to pull in the random matricies, call \mbox{\hyperlink{namespaceLaLib}{La\+Lib}} to calculcate a result, and then compare the calculated result against the numpy verified result from generator output. Note\+: The assignment indicates to utilize only the C++ standard library to implement the shared library. This is honored indeed. However, in order to prove correctness, we must utilize a verifiable and known quantity, and there is no better choice than a package such as numpy, especially considering the simplicity and ease of coding that python solution.\hypertarget{index_gen_subc}{}\subsection{Generator}\label{index_gen_subc}
+Run the generator to generate known transpose operations as follows\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./\mbox{\hyperlink{namespacegenerator}{generator}}.py -t 1000 -10 10 1 100 > test/many-transpose.test}
+\end{DoxyCode}
+ This will generate 1000 test cases and save in given file. From here, correctness is verfied by executing the Test\+Runner as follows. In this example we run transpose operations\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\$ ./TestRunner -tf test/many-transpose.test}
+\DoxyCodeLine{Transpose simulations from: test/many-transpose.test}
+\DoxyCodeLine{Success. All 1000 transpose test cases match expected result.}
+\end{DoxyCode}
+ If there is a failure, it will be reported as follows. In this example we run multiply operations on a generated file, but we open it first and manually edit the file to change one of the expected elements\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./TestRunner -mf test/m6-expectedFail.test}
+\DoxyCodeLine{Multiply simulations from: test/m6-expectedFail.test}
+\DoxyCodeLine{}
+\DoxyCodeLine{Failed on multiply test \textcolor{keywordflow}{case} 9987}
+\DoxyCodeLine{}
+\DoxyCodeLine{matrixA:}
+\DoxyCodeLine{14 7 18 8 7 20 6 12 20 20 20 20 3 19 11 5 5 5 5 0 8 10 5}
+\DoxyCodeLine{2 19 3 0 4 14 18 3 6 17 11 11 11 13 10 7 13 6 9 7 1 20 3}
+\DoxyCodeLine{19 8 0 13 13 4 14 12 3 3 14 15 17 18 20 14 12 3 1 0 8 7 10}
+\DoxyCodeLine{18 15 20 14 17 16 5 7 12 4 17 19 17 19 0 2 9 19 4 13 1 10 15}
+\DoxyCodeLine{1 5 7 1 0 14 20 6 4 6 11 4 3 8 4 16 2 12 0 1 5 17 10}
+\DoxyCodeLine{15 20 19 20 1 8 1 0 14 3 10 9 12 19 3 6 4 14 2 18 12 19 2}
+\DoxyCodeLine{2 14 20 18 6 4 3 9 18 0 16 7 16 10 1 4 16 16 17 7 5 17 13}
+\DoxyCodeLine{19 3 6 1 1 18 12 3 10 9 15 9 13 10 6 18 5 5 11 5 17 11 20}
+\DoxyCodeLine{13 16 6 10 11 7 16 12 19 17 17 5 11 17 15 4 18 10 10 9 11 11 18}
+\DoxyCodeLine{14 3 15 20 4 20 16 4 16 10 13 4 9 19 1 17 3 17 13 18 18 16 19}
+\DoxyCodeLine{}
+\DoxyCodeLine{matrixB:}
+\DoxyCodeLine{9 7 1 14 10 6 10 0 11 14 5 9}
+\DoxyCodeLine{1 0 12 0 1 12 1 6 6 10 8 3}
+\DoxyCodeLine{4 12 0 3 2 14 14 14 0 5 12 8}
+\DoxyCodeLine{0 0 14 12 2 12 12 9 6 5 10 0}
+\DoxyCodeLine{12 7 4 12 6 12 12 11 9 11 6 2}
+\DoxyCodeLine{14 9 12 4 6 5 0 8 2 11 13 4}
+\DoxyCodeLine{7 2 4 8 3 13 3 10 4 1 7 1}
+\DoxyCodeLine{0 3 9 6 11 6 13 8 8 13 8 0}
+\DoxyCodeLine{0 1 6 14 14 7 0 12 12 7 5 1}
+\DoxyCodeLine{11 14 6 2 9 12 3 14 13 12 10 2}
+\DoxyCodeLine{3 12 8 6 1 10 3 9 6 5 3 13}
+\DoxyCodeLine{4 4 14 7 5 7 11 8 4 14 0 6}
+\DoxyCodeLine{13 8 0 10 5 2 6 4 4 2 0 5}
+\DoxyCodeLine{13 0 3 5 5 7 9 3 10 2 1 14}
+\DoxyCodeLine{0 13 14 9 7 6 1 6 4 0 0 7}
+\DoxyCodeLine{14 0 3 11 6 6 12 14 14 12 14 9}
+\DoxyCodeLine{4 9 11 8 5 3 11 9 3 14 3 12}
+\DoxyCodeLine{10 10 7 7 9 6 13 9 5 3 2 8}
+\DoxyCodeLine{5 3 8 12 5 0 2 13 1 1 6 5}
+\DoxyCodeLine{1 10 6 9 3 3 2 10 0 14 3 13}
+\DoxyCodeLine{8 8 6 12 6 2 8 11 4 10 7 1}
+\DoxyCodeLine{7 5 8 0 14 3 3 3 12 9 12 4}
+\DoxyCodeLine{0 11 12 7 10 3 4 11 2 14 13 13}
+\DoxyCodeLine{}
+\DoxyCodeLine{productExpected:}
+\DoxyCodeLine{1556 1657 1834 1755 1641 1911 1597 2152 1690 2049 1607 1472}
+\DoxyCodeLine{1405 1302 1594 1256 1276 1467 1037 1716 1339 1614 1310 1260}
+\DoxyCodeLine{1471 1343 1680 1904 1395 1583 1674 1705 1543 1804 1232 1474}
+\DoxyCodeLine{1724 1780 1906 2015 1632 1998 2000 2215 1573 2289 1639 1879}
+\DoxyCodeLine{1148 970 1107 982 1050 1134 955 1396 1053 1202 1256 974}
+\DoxyCodeLine{1361 1336 1578 1666 1363 1646 1574 1809 1435 1820 1457 1505}
+\DoxyCodeLine{1206 1437 1765 1788 1470 1593 1663 216 1319 1764 1538 1520}
+\DoxyCodeLine{1620 1530 1530 1833 1532 1340 1338 1956 1432 1947 1613 1541}
+\DoxyCodeLine{1573 1858 2112 2164 1853 1968 1684 2427 1799 2267 1723 1769}
+\DoxyCodeLine{1917 1792 1952 2302 1854 1905 1868 2606 1757 2294 2118 1859}
+\DoxyCodeLine{}
+\DoxyCodeLine{productCalculated:}
+\DoxyCodeLine{1556 1657 1834 1755 1641 1911 1597 2152 1690 2049 1607 1472}
+\DoxyCodeLine{1405 1302 1594 1256 1276 1467 1037 1716 1339 1614 1310 1260}
+\DoxyCodeLine{1471 1343 1680 1904 1395 1583 1674 1705 1543 1804 1232 1474}
+\DoxyCodeLine{1724 1780 1906 2015 1632 1998 2000 2215 1573 2289 1639 1879}
+\DoxyCodeLine{1148 970 1107 982 1050 1134 955 1396 1053 1202 1256 974}
+\DoxyCodeLine{1361 1336 1578 1666 1363 1646 1574 1809 1435 1820 1457 1505}
+\DoxyCodeLine{1206 1437 1765 1788 1470 1593 1663 2126 1319 1764 1538 1520}
+\DoxyCodeLine{1620 1530 1530 1833 1532 1340 1338 1956 1432 1947 1613 1541}
+\DoxyCodeLine{1573 1858 2112 2164 1853 1968 1684 2427 1799 2267 1723 1769}
+\DoxyCodeLine{1917 1792 1952 2302 1854 1905 1868 2606 1757 2294 2118 1859}
+\end{DoxyCode}
+\hypertarget{index_trouble_sec}{}\section{Troubleshooting}\label{index_trouble_sec}
+
+\begin{DoxyEnumerate}
+\item cygwin can find the $\ast$.so library in current directory, but W\+SL and other environments may not.~\newline
+ Set the L\+D\+\_\+\+L\+I\+B\+R\+A\+R\+Y\+\_\+\+P\+A\+TH as follows\+:~\newline
+ export L\+D\+\_\+\+L\+I\+B\+R\+A\+R\+Y\+\_\+\+P\+A\+TH=.
+\item The Python generator requires numpy; install it as faollows\+:~\newline
+ pip install numpy
+\item Turn on logging in the \mbox{\hyperlink{namespaceLaLib}{La\+Lib}} by defining L\+O\+G\+G\+I\+NG\+:~\newline
+ \#define L\+O\+G\+G\+I\+NG
+\item Useful online matrix calculator\+:~\newline
+ \href{https://matrix.reshish.com/multCalculation.php}{\texttt{ https\+://matrix.\+reshish.\+com/mult\+Calculation.\+php}}
+\item Numpy reference\+:~\newline
+ \href{https://docs.scipy.org/doc/numpy/reference/index.html}{\texttt{ https\+://docs.\+scipy.\+org/doc/numpy/reference/index.\+html}}
+\end{DoxyEnumerate}\hypertarget{index_roadmap_sec}{}\section{Road Map}\label{index_roadmap_sec}
+
+\begin{DoxyEnumerate}
+\item \mbox{\hyperlink{namespaceLaLib}{La\+Lib}} implements the linear algebra operations as functions. It may become useful one day to wrap these in a C++ class.
+\item The mf and tf options from Test\+Runner will execute all the test cases in a given directory 
+\end{DoxyEnumerate}

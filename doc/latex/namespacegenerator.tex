@@ -1,0 +1,81 @@
+\hypertarget{namespacegenerator}{}\section{generator Namespace Reference}
+\label{namespacegenerator}\index{generator@{generator}}
+
+
+This program will generate accurate matrix operations using numpy to be utilized against the \mbox{\hyperlink{namespaceLaLib}{La\+Lib}} Test\+Runner to prove correctness.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacegenerator_a7fecf4fa19a7717368e1756df8eadb4c}\label{namespacegenerator_a7fecf4fa19a7717368e1756df8eadb4c}} 
+def \mbox{\hyperlink{namespacegenerator_a7fecf4fa19a7717368e1756df8eadb4c}{matrix\+Print}} (matrix, include\+Size)
+\begin{DoxyCompactList}\small\item\em Print given matrix to stdout, optionally include the size of the matrix on the first line. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegenerator_a84a4ed82e74540b0e085290607516a46}\label{namespacegenerator_a84a4ed82e74540b0e085290607516a46}} 
+def \mbox{\hyperlink{namespacegenerator_a84a4ed82e74540b0e085290607516a46}{rand}} (low, high)
+\begin{DoxyCompactList}\small\item\em Return a random number between given low and high. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegenerator_a20c4e9b4b7e43b6c9f378d31d011467e}\label{namespacegenerator_a20c4e9b4b7e43b6c9f378d31d011467e}} 
+def \mbox{\hyperlink{namespacegenerator_a20c4e9b4b7e43b6c9f378d31d011467e}{get\+Random\+Matrix}} (\mbox{\hyperlink{namespacegenerator_a1aed69a5264581b10544330d2060af2c}{min\+Value}}, \mbox{\hyperlink{namespacegenerator_a38b196f0609e1295c246d9bb79073259}{max\+Value}}, x, y)
+\begin{DoxyCompactList}\small\item\em Utilize numpy to generate random matrix with given seed values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegenerator_ac097e6c0b0520ae34466d9ed65372fbe}\label{namespacegenerator_ac097e6c0b0520ae34466d9ed65372fbe}} 
+def \mbox{\hyperlink{namespacegenerator_ac097e6c0b0520ae34466d9ed65372fbe}{generate\+Trans}} (\mbox{\hyperlink{namespacegenerator_a57fb6bb46ceaf7e6c079c15b6b990262}{count}}, \mbox{\hyperlink{namespacegenerator_a1aed69a5264581b10544330d2060af2c}{min\+Value}}, \mbox{\hyperlink{namespacegenerator_a38b196f0609e1295c246d9bb79073259}{max\+Value}}, \mbox{\hyperlink{namespacegenerator_aa67ea040e8eb181e958bf7767d15b297}{min\+Size}}, \mbox{\hyperlink{namespacegenerator_ab7b0710a2df070c675c125365275a243}{max\+Size}})
+\begin{DoxyCompactList}\small\item\em Generate \mbox{[}count\mbox{]} transpose matricies with given seed values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegenerator_a68a2f5cfcb1a19019b99783d739034ea}\label{namespacegenerator_a68a2f5cfcb1a19019b99783d739034ea}} 
+def \mbox{\hyperlink{namespacegenerator_a68a2f5cfcb1a19019b99783d739034ea}{generate\+Multiply}} (\mbox{\hyperlink{namespacegenerator_a57fb6bb46ceaf7e6c079c15b6b990262}{count}}, \mbox{\hyperlink{namespacegenerator_a1aed69a5264581b10544330d2060af2c}{min\+Value}}, \mbox{\hyperlink{namespacegenerator_a38b196f0609e1295c246d9bb79073259}{max\+Value}}, \mbox{\hyperlink{namespacegenerator_aa67ea040e8eb181e958bf7767d15b297}{min\+Size}}, \mbox{\hyperlink{namespacegenerator_ab7b0710a2df070c675c125365275a243}{max\+Size}})
+\begin{DoxyCompactList}\small\item\em Generate \mbox{[}count\mbox{]} product matricies with given seed values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegenerator_a8f680ae7ad35928226314acb955bfe19}\label{namespacegenerator_a8f680ae7ad35928226314acb955bfe19}} 
+def \mbox{\hyperlink{namespacegenerator_a8f680ae7ad35928226314acb955bfe19}{print\+Help}} ()
+\begin{DoxyCompactList}\small\item\em Print help to user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespacegenerator_ad47482614306598815ef0e24e3463de1}\label{namespacegenerator_ad47482614306598815ef0e24e3463de1}} 
+int \mbox{\hyperlink{namespacegenerator_ad47482614306598815ef0e24e3463de1}{D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+O\+U\+NT}} = 1
+\begin{DoxyCompactList}\small\item\em Default value for how many to generate. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegenerator_a8c4f0976fd6061b5da01305b2dd476a2}\label{namespacegenerator_a8c4f0976fd6061b5da01305b2dd476a2}} 
+int \mbox{\hyperlink{namespacegenerator_a8c4f0976fd6061b5da01305b2dd476a2}{D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+I\+N\+\_\+\+V\+A\+L\+UE}} = 0
+\begin{DoxyCompactList}\small\item\em Default value for matrix element minimum random number. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegenerator_a38e484a8c0585682f654d6312cdb4af5}\label{namespacegenerator_a38e484a8c0585682f654d6312cdb4af5}} 
+int \mbox{\hyperlink{namespacegenerator_a38e484a8c0585682f654d6312cdb4af5}{D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE}} = 10
+\begin{DoxyCompactList}\small\item\em Default value for matrix element maximum random number. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegenerator_a346c332ecb6c8786ddd01a989e634777}\label{namespacegenerator_a346c332ecb6c8786ddd01a989e634777}} 
+int \mbox{\hyperlink{namespacegenerator_a346c332ecb6c8786ddd01a989e634777}{D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+I\+N\+\_\+\+S\+I\+ZE}} = 1
+\begin{DoxyCompactList}\small\item\em Default value for matrix size minimum random number. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegenerator_ab7780beb5ea70ea98b607e0cbc6f7fdd}\label{namespacegenerator_ab7780beb5ea70ea98b607e0cbc6f7fdd}} 
+int \mbox{\hyperlink{namespacegenerator_ab7780beb5ea70ea98b607e0cbc6f7fdd}{D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+X\+\_\+\+S\+I\+ZE}} = 10
+\begin{DoxyCompactList}\small\item\em Default value for matrix size maximum random number. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegenerator_a57fb6bb46ceaf7e6c079c15b6b990262}\label{namespacegenerator_a57fb6bb46ceaf7e6c079c15b6b990262}} 
+int \mbox{\hyperlink{namespacegenerator_a57fb6bb46ceaf7e6c079c15b6b990262}{count}} = \mbox{\hyperlink{namespacegenerator_ad47482614306598815ef0e24e3463de1}{D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+O\+U\+NT}}
+\begin{DoxyCompactList}\small\item\em Get count from user. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegenerator_a1aed69a5264581b10544330d2060af2c}\label{namespacegenerator_a1aed69a5264581b10544330d2060af2c}} 
+int \mbox{\hyperlink{namespacegenerator_a1aed69a5264581b10544330d2060af2c}{min\+Value}} = \mbox{\hyperlink{namespacegenerator_a8c4f0976fd6061b5da01305b2dd476a2}{D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+I\+N\+\_\+\+V\+A\+L\+UE}}
+\begin{DoxyCompactList}\small\item\em Get min value of matrix element from user. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegenerator_a38b196f0609e1295c246d9bb79073259}\label{namespacegenerator_a38b196f0609e1295c246d9bb79073259}} 
+int \mbox{\hyperlink{namespacegenerator_a38b196f0609e1295c246d9bb79073259}{max\+Value}} = \mbox{\hyperlink{namespacegenerator_a38e484a8c0585682f654d6312cdb4af5}{D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+X\+\_\+\+V\+A\+L\+UE}}
+\begin{DoxyCompactList}\small\item\em Get max value of matrix element from user. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegenerator_aa67ea040e8eb181e958bf7767d15b297}\label{namespacegenerator_aa67ea040e8eb181e958bf7767d15b297}} 
+int \mbox{\hyperlink{namespacegenerator_aa67ea040e8eb181e958bf7767d15b297}{min\+Size}} = \mbox{\hyperlink{namespacegenerator_a346c332ecb6c8786ddd01a989e634777}{D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+I\+N\+\_\+\+S\+I\+ZE}}
+\begin{DoxyCompactList}\small\item\em Get min value of matrix size. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespacegenerator_ab7b0710a2df070c675c125365275a243}\label{namespacegenerator_ab7b0710a2df070c675c125365275a243}} 
+int \mbox{\hyperlink{namespacegenerator_ab7b0710a2df070c675c125365275a243}{max\+Size}} = \mbox{\hyperlink{namespacegenerator_ab7780beb5ea70ea98b607e0cbc6f7fdd}{D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+X\+\_\+\+S\+I\+ZE}}
+\begin{DoxyCompactList}\small\item\em Get max value of matrix size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This program will generate accurate matrix operations using numpy to be utilized against the \mbox{\hyperlink{namespaceLaLib}{La\+Lib}} Test\+Runner to prove correctness. 
+
+\begin{DoxyAuthor}{Author}
+Michael Meloney 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+June 26, 2019 Options\+:~\newline
+ -\/t \mbox{[}count=1\mbox{]} \mbox{[}min\+Value=0\mbox{]} \mbox{[}max\+Value=10\mbox{]} \mbox{[}min\+Size=1\mbox{]} \mbox{[}max\+Size=10\mbox{]} Transpose~\newline
+ -\/m \mbox{[}count=1\mbox{]} \mbox{[}min\+Value=0\mbox{]} \mbox{[}max\+Value=10\mbox{]} \mbox{[}min\+Size=1\mbox{]} \mbox{[}max\+Size=10\mbox{]} Multiply~\newline
+~\newline
+ Sample Usage\+:~\newline
+ Generate 1000 matrix products from random matricies with element values in range \mbox{[}50,50\mbox{]} and matrix size \mbox{[}1,20\mbox{]}~\newline
+ ./generator.py -\/m 1000 -\/50 50 1 20 $>$ product.\+test~\newline
+~\newline
+ Generate 1000 matrix transpose operations from random matricies with element values in range \mbox{[}50,50\mbox{]} and matrix size \mbox{[}1,20\mbox{]}~\newline
+ ./generator.py -\/t 1000 -\/50 50 1 20 $>$ transpose.\+test 
+\end{DoxyDate}
